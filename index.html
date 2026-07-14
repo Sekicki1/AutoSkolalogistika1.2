@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto škola Logistika - Novi Beograd</title>
+<meta name="description" content="Auto škola Logistika, Novi Beograd. Obuka za B kategoriju, 40 časova vožnje, popust za studente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  body { font-family: 'IBM Plex Sans', sans-serif; background: oklch(98% 0.004 90); color: oklch(20% 0.012 100); line-height: 1.5; cursor: none; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+
+  @keyframes flagWave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(10deg); } }
+
+  #cursor { position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none; opacity: 0; transform: translate(-100px,-100px); }
+  #cursor .flag { transform-origin: 3px 3px; animation: flagWave 1.1s ease-in-out infinite; }
+
+  .nav-link { padding: 6px 10px; border-radius: 6px; outline: 2px solid transparent; outline-offset: 2px; transition: transform 0.2s ease, outline-color 0.2s ease; }
+  .nav-link:hover { transform: scale(1.12); outline-color: var(--accent); }
+
+  .phone-btn { background: var(--accent); color: oklch(99% 0 0); padding: 10px 20px; border-radius: 8px; white-space: nowrap; position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 210px; height: 20px; overflow: hidden; }
+  .phone-btn span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.2s ease; }
+  .phone-btn .default { opacity: 1; }
+  .phone-btn .alt { opacity: 0; }
+  .phone-btn:hover .default { opacity: 0; }
+  .phone-btn:hover .alt { opacity: 1; }
+
+  .pop-hover { cursor: pointer; transition: transform 0.25s ease; display: block; }
+  .pop-hover:hover { transform: scale(1.06); }
+  .pop-hover-lg:hover { transform: scale(1.08); }
+
+  .pop-in { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .pop-in.visible { opacity: 1; transform: translateY(0); }
+
+  .gallery-item { opacity: 0; transform: scale(0.85); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .gallery-item.visible { opacity: 1; transform: scale(1); }
+
+  .star { opacity: 0; transform: scale(0.4); transition: opacity 0.4s ease, transform 0.4s ease; }
+  .star.visible { opacity: 1; transform: scale(1); }
+
+  .stat-num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; color: var(--accent); }
+</style>
+</head>
+<body style="--accent: oklch(42% 0.1 152);">
+
+  <div id="cursor">
+    <svg width="30" height="30" viewBox="0 0 30 30" style="display:block;">
+      <line x1="3" y1="27" x2="3" y2="3" stroke="oklch(30% 0.01 100)" stroke-width="2"/>
+      <g class="flag">
+        <rect x="3" y="3" width="9" height="7" fill="oklch(20% 0 0)"/>
+        <rect x="12" y="3" width="9" height="7" fill="oklch(99% 0 0)"/>
+        <rect x="3" y="10" width="9" height="7" fill="oklch(99% 0 0)"/>
+        <rect x="12" y="10" width="9" height="7" fill="oklch(20% 0 0)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- HEADER -->
+  <header style="position: sticky; top: 0; z-index: 50; background: oklch(98% 0.004 90 / 0.97); border-bottom: 1px solid oklch(85% 0.01 90); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px clamp(20px, 4vw, 56px); flex-wrap: wrap;">
+    <img src="assets/Gemini_Generated_Image_bhhxidbhhxidbhhx-Photoroom.png" alt="Auto škola Logistika" style="height: clamp(56px, 11vw, 110px); width: auto; object-fit: contain;">
+    <nav style="display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); flex-wrap: wrap; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;">
+      <a class="nav-link" href="#pocetna">POČETNA</a>
+      <a class="nav-link" href="#vozila">VOZILA</a>
+      <a class="nav-link" href="#cenovnik">CENOVNIK</a>
+      <a class="nav-link" href="#lokacija">LOKACIJA</a>
+      <a class="nav-link" href="#testovi">TESTOVI</a>
+      <a class="phone-btn" href="tel:+38163288358">
+        <span class="default">Pozovi nas!</span>
+        <span class="alt">Položi iz prve!</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="pocetna" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; z-index: 0;">
+      <img src="assets/auto-skola-logistka-novi-beograd-sika-08-1102x798.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); opacity: 0.3; pointer-events: none; position: absolute; inset: 0;">
+      <div style="position: absolute; inset: 0; background: oklch(98% 0.004 90 / 0.55);"></div>
+    </div>
+    <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: clamp(56px, 9vw, 112px) clamp(20px, 4vw, 56px) clamp(48px, 7vw, 80px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(32px, 6vw, 64px); align-items: center;">
+      <div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); font-size: 15px; margin-bottom: 24px;">ELITNA AUTO ŠKOLA · NOVI BEOGRAD</div>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 4.2vw, 48px); line-height: 1.3; margin: 0 0 28px;">Auto škola koja te ne uči samo da položiš već da bezbedno voziš ceo život.</h1>
+        <p style="max-width: 46ch; font-size: 18px; color: oklch(38% 0.012 100); margin: 0 0 36px;">Radimo u Narodnih Heroja 30, na drugom spratu.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+          <a href="tel:+38163288358" style="background: var(--accent); color: oklch(99% 0 0); font-family: 'Space Grotesk', sans-serif; font-weight: 600; padding: 16px 28px; border-radius: 8px; font-size: 16px;">Pozovite 063 288 358</a>
+          <a href="#vozila" style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; border-bottom: 1px solid oklch(20% 0.012 100); padding-bottom: 2px;">Pogledajte vozila</a>
+        </div>
+      </div>
+      <a href="assets/auto-skola-logistka-novi-beograd-sika-08-1102x798.jpg" class="lightbox-link" style="aspect-ratio: 4/3; border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden; display: block;">
+        <img class="pop-hover" src="assets/auto-skola-logistka-novi-beograd-sika-08-1102x798.jpg" alt="Instruktor i kandidat u vozilu" style="width: 100%; height: 100%; object-fit: cover;">
+      </a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="border-top: 1px solid oklch(85% 0.01 90); border-bottom: 1px solid oklch(85% 0.01 90); background: oklch(96.5% 0.006 90);">
+    <div id="stats" style="max-width: 1180px; margin: 0 auto; padding: clamp(32px, 5vw, 48px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+      <div style="padding: 0 20px; border-left: 1px solid oklch(85% 0.01 90);">
+        <div class="stat-num" data-target="40" data-suffix="">0</div>
+        <div style="font-size: 15px; color: oklch(38% 0.012 100);">časova obuke za vožnju</div>
+      </div>
+      <div style="padding: 0 20px; border-left: 1px solid oklch(85% 0.01 90);">
+        <div class="stat-num" data-target="1.2" data-decimal="1">0</div>
+        <div style="font-size: 15px; color: oklch(38% 0.012 100);">prosek pokušaja na teoriji, 2007-2016</div>
+      </div>
+      <div style="padding: 0 20px; border-left: 1px solid oklch(85% 0.01 90);">
+        <div class="stat-num" data-target="2.2" data-decimal="1">0</div>
+        <div style="font-size: 15px; color: oklch(38% 0.012 100);">prosek pokušaja na praktičnom delu</div>
+      </div>
+      <div style="padding: 0 20px; border-left: 1px solid oklch(85% 0.01 90);">
+        <div class="stat-num" data-target="10" data-suffix="%">0</div>
+        <div style="font-size: 15px; color: oklch(38% 0.012 100);">popust za studente i maturante</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZASTO KOD NAS -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px);">
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 48px;">Za vas smo obezbedili</h2>
+    <div id="zasto" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px;">
+      <div class="pop-in" style="transition-delay: 0s;">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="margin-bottom: 18px;">
+          <path d="M5 24 L8 15 Q9 12 13 12 H27 Q31 12 32 15 L35 24" stroke="oklch(42% 0.1 152)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          <rect x="4" y="24" width="32" height="8" rx="2" stroke="oklch(42% 0.1 152)" stroke-width="2"></rect>
+          <circle cx="12" cy="32" r="3" stroke="oklch(42% 0.1 152)" stroke-width="2"></circle>
+          <circle cx="28" cy="32" r="3" stroke="oklch(42% 0.1 152)" stroke-width="2"></circle>
+        </svg>
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 19px; margin: 0 0 10px;">Klimatizovana vozila</h3>
+        <p style="max-width: 40ch; color: oklch(38% 0.012 100); margin: 0;">Vozimo Škoda Fabiju, Fiat Punto i Chevrolet Kalos. Sva vozila su tehnički ispravna i redovno servisirana.</p>
+      </div>
+      <div class="pop-in" style="transition-delay: 0.15s;">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="margin-bottom: 18px;">
+          <path d="M8 8 H24 Q28 8 28 12 V32 Q28 28 24 28 H8 Z" stroke="oklch(42% 0.1 152)" stroke-width="2" stroke-linejoin="round"></path>
+          <line x1="8" y1="8" x2="8" y2="32" stroke="oklch(42% 0.1 152)" stroke-width="2"></line>
+          <line x1="13" y1="15" x2="22" y2="15" stroke="oklch(42% 0.1 152)" stroke-width="2"></line>
+          <line x1="13" y1="21" x2="22" y2="21" stroke="oklch(42% 0.1 152)" stroke-width="2"></line>
+        </svg>
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 19px; margin: 0 0 10px;">Besplatna literatura</h3>
+        <p style="max-width: 40ch; color: oklch(38% 0.012 100); margin: 0;">Svaki kandidat dobija knjigu za teorijski ispit, autor mr Živorad Fićović. Ne plaćate je posebno.</p>
+      </div>
+      <div class="pop-in" style="transition-delay: 0.3s;">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="margin-bottom: 18px;">
+          <rect x="5" y="8" width="30" height="20" rx="2" stroke="oklch(42% 0.1 152)" stroke-width="2"></rect>
+          <line x1="14" y1="33" x2="26" y2="33" stroke="oklch(42% 0.1 152)" stroke-width="2" stroke-linecap="round"></line>
+          <line x1="20" y1="28" x2="20" y2="33" stroke="oklch(42% 0.1 152)" stroke-width="2"></line>
+        </svg>
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 19px; margin: 0 0 10px;">Računari u učionici</h3>
+        <p style="max-width: 40ch; color: oklch(38% 0.012 100); margin: 0;">Vežbate probne testove na računaru, sa istim rasporedom pitanja kao na pravom ispitu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section style="max-width: 900px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px) 0;">
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 24px;">Pogledajte kako izgleda obuka</h2>
+    <div style="position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden; background: oklch(10% 0 0);">
+      <iframe src="https://streamable.com/e/43abey" frameborder="0" allow="fullscreen" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+  </section>
+
+  <!-- ISKUSTVA -->
+  <section style="background: oklch(96.5% 0.006 90); border-top: 1px solid oklch(85% 0.01 90); border-bottom: 1px solid oklch(85% 0.01 90);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px);">
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 48px;">Iskustva polaznika</h2>
+      <div id="testimonials" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;">
+
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 20px;">
+          <div class="stars" style="display: flex; gap: 4px;" data-rating="5"></div>
+          <p style="margin: 0; font-size: 16px; color: oklch(28% 0.012 100);">Nova uprava škole je sjajna. Strpljivi su, žele da pomognu kandidatima, uvek su tu da odgovore na svako pitanje, detaljni su, stručni i precizni. Sve pohvale za Miloša, Kseniju i mog instruktora Vladana. Zahvalan sam na svemu.</p>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: auto;">
+            <img src="assets/Milos recenzija.png" alt="Miloš" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;">Miloš</span>
+          </div>
+        </div>
+
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 20px;">
+          <div class="stars" style="display: flex; gap: 4px;" data-rating="4"></div>
+          <p style="margin: 0; font-size: 16px; color: oklch(28% 0.012 100);">Sve pohvale za novi kadar, velika pohvala za strpljenje i pažnju instruktora i predavača. Povoljne cene i profesionalna usluga. Preporuka za instruktorku Kseniju.</p>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: auto;">
+            <img src="assets/lazar auto skola.png" alt="Lazar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;">Lazar</span>
+          </div>
+        </div>
+
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 20px;">
+          <div class="stars" style="display: flex; gap: 4px;" data-rating="5"></div>
+          <p style="margin: 0; font-size: 16px; color: oklch(28% 0.012 100);">Odlična auto škola, veoma odgovorni i savesni ljudi koji su prvenstveno posvećeni tome da njihovu školu završe bezbedni vozači. Ksenija je instruktorka za svaku pohvalu.</p>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: auto;">
+            <img src="assets/bradonja recenzija auto skola.png" alt="Bradonja" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px;">Bradonja</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VOZILA -->
+  <section id="vozila" style="background: oklch(96.5% 0.006 90); border-top: 1px solid oklch(85% 0.01 90); border-bottom: 1px solid oklch(85% 0.01 90);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px);">
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 16px;">Vozila</h2>
+      <p style="max-width: 65ch; color: oklch(38% 0.012 100); margin: 0 0 48px;">Isti automobil vozite na časovima i na ispitu, tako da vam ispitna sala ne bude nepoznat prostor.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden;">
+          <a href="assets/suzuki.jpg" class="lightbox-link" style="aspect-ratio: 4/3; overflow: hidden; display: block;">
+            <img class="pop-hover pop-hover-lg" src="assets/suzuki.jpg" alt="Suzuki Swift" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 20px;">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; margin: 0 0 6px;">Suzuki Swift</h3>
+            <p style="margin: 0; color: oklch(38% 0.012 100); font-size: 15px;">Za časove vožnje i praktični ispit.</p>
+          </div>
+        </div>
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden;">
+          <a href="assets/skoda fabia.jpg" class="lightbox-link" style="aspect-ratio: 4/3; overflow: hidden; display: block;">
+            <img class="pop-hover pop-hover-lg" src="assets/skoda fabia.jpg" alt="Škoda Fabia" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 20px;">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; margin: 0 0 6px;">Škoda Fabia</h3>
+            <p style="margin: 0; color: oklch(38% 0.012 100); font-size: 15px;">Za časove vožnje i praktični ispit.</p>
+          </div>
+        </div>
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden;">
+          <a href="assets/punto.jpg" class="lightbox-link" style="aspect-ratio: 4/3; overflow: hidden; display: block;">
+            <img class="pop-hover pop-hover-lg" src="assets/punto.jpg" alt="Fiat Punto" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 20px;">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; margin: 0 0 6px;">Fiat Punto</h3>
+            <p style="margin: 0; color: oklch(38% 0.012 100); font-size: 15px;">Za časove vožnje i praktični ispit.</p>
+          </div>
+        </div>
+        <div style="background: oklch(98% 0.004 90); border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden;">
+          <a href="assets/calos.jpg" class="lightbox-link" style="aspect-ratio: 4/3; overflow: hidden; display: block;">
+            <img class="pop-hover pop-hover-lg" src="assets/calos.jpg" alt="Chevrolet Kalos" style="width: 100%; height: 100%; object-fit: cover;">
+          </a>
+          <div style="padding: 20px;">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; margin: 0 0 6px;">Chevrolet Kalos</h3>
+            <p style="margin: 0; color: oklch(38% 0.012 100); font-size: 15px;">Za časove vožnje i praktični ispit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENOVNIK -->
+  <section id="cenovnik" style="max-width: 1180px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px;">
+    <div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 20px;">Cenovnik</h2>
+      <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 0 0 16px;">Cena zavisi od toga da li vam treba samo teorija, samo časovi vožnje ili ceo paket od upisa do ispita. Pozovite nas i za par minuta znate tačan iznos za vaš slučaj.</p>
+      <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 0;">Za grupne upise preko firmi ili sindikata dogovaramo posebnu cenu.</p>
+    </div>
+    <div style="border: 1px solid oklch(85% 0.01 90); border-radius: 8px; padding: 32px;">
+      <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; margin-bottom: 20px;">Šta dobijate u obuci</div>
+      <ul style="list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+        <li style="display: flex; gap: 12px; align-items: baseline;"><span style="color: var(--accent); font-weight: 700;">—</span><span>Teorijska nastava i literatura</span></li>
+        <li style="display: flex; gap: 12px; align-items: baseline;"><span style="color: var(--accent); font-weight: 700;">—</span><span>40 časova vožnje sa instruktorom</span></li>
+        <li style="display: flex; gap: 12px; align-items: baseline;"><span style="color: var(--accent); font-weight: 700;">—</span><span>Prijava i organizacija izlaska na ispit</span></li>
+        <li style="display: flex; gap: 12px; align-items: baseline;"><span style="color: var(--accent); font-weight: 700;">—</span><span>10% popust za studente i maturante</span></li>
+      </ul>
+      <a href="tel:+38163288358" style="display: inline-block; background: var(--accent); color: oklch(99% 0 0); font-family: 'Space Grotesk', sans-serif; font-weight: 600; padding: 14px 24px; border-radius: 8px; font-size: 15px;">Pozovite za tačnu cenu</a>
+    </div>
+  </section>
+
+  <!-- LOKACIJA -->
+  <section id="lokacija" style="background: oklch(96.5% 0.006 90); border-top: 1px solid oklch(85% 0.01 90); border-bottom: 1px solid oklch(85% 0.01 90);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;">
+      <div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 32px;">Lokacija</h2>
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 6px;">ADRESA</div>
+            <div>Narodnih Heroja 30, 2. sprat</div>
+            <div>11000 Novi Beograd</div>
+          </div>
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 6px;">TELEFONI</div>
+            <div><a href="tel:+381113190265">011 319 0265</a></div>
+            <div><a href="tel:+381112670590">011 267 0590</a></div>
+            <div><a href="tel:+38163288358">063 288 358</a></div>
+          </div>
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 6px;">MAIL</div>
+            <div><a href="mailto:logistika92@gmail.com">logistika92@gmail.com</a></div>
+          </div>
+          <div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--accent); margin-bottom: 6px;">RADNO VREME</div>
+            <div>Radnim danima: 09-17h</div>
+            <div>Subotom: 09-13h</div>
+          </div>
+        </div>
+      </div>
+      <div style="aspect-ratio: 4/3; border: 1px solid oklch(85% 0.01 90); border-radius: 8px; overflow: hidden;">
+        <iframe src="https://www.google.com/maps?q=Narodnih%20Heroja%2030%2C%20Novi%20Beograd&output=embed" title="Auto škola Logistika - mapa" width="100%" height="100%" style="border: 0; display: block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONLINE TEST -->
+  <section id="testovi" style="position: relative; overflow: hidden; background: oklch(96.5% 0.006 90); border-top: 1px solid oklch(85% 0.01 90); border-bottom: 1px solid oklch(85% 0.01 90);">
+    <img src="assets/header .jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, oklch(96.5% 0.006 90) 0%, oklch(96.5% 0.006 90 / 0) 30%, oklch(96.5% 0.006 90 / 0) 70%, oklch(96.5% 0.006 90) 100%);"></div>
+    <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 56px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between;">
+      <div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 34px); margin: 0 0 12px;">Započni online test</h2>
+        <p style="max-width: 55ch; color: oklch(38% 0.012 100); margin: 0;">Proverite znanje pre ispita, preko zvaničnog servisa eUprave.</p>
+      </div>
+      <a href="https://servisi.euprava.gov.rs/autoskole/prijava" target="_blank" rel="noopener" style="background: var(--accent); color: oklch(99% 0 0); font-family: 'Space Grotesk', sans-serif; font-weight: 600; padding: 16px 28px; border-radius: 8px; font-size: 16px; white-space: nowrap;">Započni test</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width: 780px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px);">
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 40px;">Najčešća pitanja</h2>
+    <div style="display: flex; flex-direction: column;">
+      <details style="border-top: 1px solid oklch(85% 0.01 90); padding: 20px 0;">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; cursor: pointer;">Kada mogu da upišem auto školu?</summary>
+        <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 14px 0 0;">Sa navršenih 16 godina počinjete obuku. Za praktični deo ispita treba da imate 17 godina.</p>
+      </details>
+      <details style="border-top: 1px solid oklch(85% 0.01 90); padding: 20px 0;">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; cursor: pointer;">Koliko traje obuka za vožnju?</summary>
+        <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 14px 0 0;">Obuka traje 40 časova, sa instruktorima koji prate vaš napredak od prvog dana.</p>
+      </details>
+      <details style="border-top: 1px solid oklch(85% 0.01 90); padding: 20px 0;">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; cursor: pointer;">Da li mi treba lična karta?</summary>
+        <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 14px 0 0;">Da. Nosite je na svaki čas i na oba dela ispita.</p>
+      </details>
+      <details style="border-top: 1px solid oklch(85% 0.01 90); padding: 20px 0;">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; cursor: pointer;">Kada mi treba lekarsko uverenje?</summary>
+        <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 14px 0 0;">Pre nego što krenete sa praktičnim delom obuke.</p>
+      </details>
+      <details style="border-top: 1px solid oklch(85% 0.01 90); padding: 20px 0;">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 17px; cursor: pointer;">Koliko košta obuka?</summary>
+        <p style="max-width: 60ch; color: oklch(38% 0.012 100); margin: 14px 0 0;">Zavisi od paketa koji vam treba. Pozovite nas na 063 288 358 i kažemo vam tačan iznos.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- GALERIJA -->
+  <section style="max-width: 1180px; margin: 0 auto; padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px);">
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 48px;">Galerija</h2>
+    <div id="gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+      <a href="assets/auto-skola-logistka-novi-beograd-sika-32-1279x854.jpg" class="lightbox-link gallery-item" style="transition-delay: 0s; border-radius: 8px; overflow: hidden; display: block;">
+        <img class="pop-hover" src="assets/auto-skola-logistka-novi-beograd-sika-32-1279x854.jpg" alt="Galerija" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;">
+      </a>
+      <a href="assets/auto-skola-logistka-novi-beograd-sika-31-1279x854.jpg" class="lightbox-link gallery-item" style="transition-delay: 0.1s; border-radius: 8px; overflow: hidden; display: block;">
+        <img class="pop-hover" src="assets/auto-skola-logistka-novi-beograd-sika-31-1279x854.jpg" alt="Galerija" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;">
+      </a>
+      <a href="assets/auto-skola-logistka-novi-beograd-sika-24-1102x798.jpg" class="lightbox-link gallery-item" style="transition-delay: 0.2s; border-radius: 8px; overflow: hidden; display: block;">
+        <img class="pop-hover" src="assets/auto-skola-logistka-novi-beograd-sika-24-1102x798.jpg" alt="Galerija" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;">
+      </a>
+      <a href="assets/auto-skola-logistka-novi-beograd-sika-30-1279x854.jpg" class="lightbox-link gallery-item" style="transition-delay: 0.3s; border-radius: 8px; overflow: hidden; display: block;">
+        <img class="pop-hover" src="assets/auto-skola-logistka-novi-beograd-sika-30-1279x854.jpg" alt="Galerija" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;">
+      </a>
+      <a href="assets/auto-skola-logistka-novi-beograd-sika-33-1279x854.jpg" class="lightbox-link gallery-item" style="transition-delay: 0.4s; border-radius: 8px; overflow: hidden; display: block;">
+        <img class="pop-hover" src="assets/auto-skola-logistka-novi-beograd-sika-33-1279x854.jpg" alt="Galerija" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;">
+      </a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section style="background: var(--accent); color: oklch(99% 0 0); text-align: center; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 56px);">
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 28px;">Pozovite i zakažite prvi čas</h2>
+    <a href="tel:+38163288358" style="display: inline-block; background: oklch(99% 0 0); color: var(--accent); font-family: 'Space Grotesk', sans-serif; font-weight: 700; padding: 18px 32px; border-radius: 8px; font-size: 17px;">063 288 358</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid oklch(85% 0.01 90); padding: 48px clamp(20px, 4vw, 56px); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: center; max-width: 1180px; margin: 0 auto;">
+    <img src="assets/Gemini_Generated_Image_bhhxidbhhxidbhhx-Photoroom.png" alt="Auto škola Logistika" style="height: 40px; width: auto; object-fit: contain;">
+    <div style="font-size: 14px; color: oklch(38% 0.012 100); display: flex; flex-wrap: wrap; gap: 20px;">
+      <span>Narodnih Heroja 30, Novi Beograd</span>
+      <a href="tel:+38163288358">063 288 358</a>
+      <a href="https://www.facebook.com/autoskola.logistika/">Facebook</a>
+    </div>
+    <div style="font-size: 13px; color: oklch(55% 0.01 90);">© Auto škola Logistika</div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" style="display: none; position: fixed; inset: 0; z-index: 10000; background: oklch(10% 0 0 / 0.92); align-items: center; justify-content: center; padding: 40px; cursor: zoom-out;">
+    <button id="lightbox-close" aria-label="Zatvori" style="position: absolute; top: 24px; right: 28px; width: 44px; height: 44px; border-radius: 50%; border: none; background: oklch(99% 0 0 / 0.15); color: oklch(99% 0 0); font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+    <img id="lightbox-img" src="" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; cursor: default;">
+  </div>
+
+<script>
+  // custom cursor
+  var cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', function (e) {
+    cursor.style.opacity = 1;
+    cursor.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+  });
+  document.addEventListener('mouseleave', function () { cursor.style.opacity = 0; });
+
+  // stats count-up
+  function animateStats() {
+    document.querySelectorAll('.stat-num').forEach(function (el) {
+      var target = parseFloat(el.getAttribute('data-target'));
+      var decimals = parseInt(el.getAttribute('data-decimal') || '0', 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var start = performance.now();
+      var dur = 1400;
+      function step(now) {
+        var p = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = target * eased;
+        el.textContent = (decimals ? val.toFixed(decimals).replace('.', ',') : Math.round(val)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsObserver = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) { animateStats(); statsObserver.disconnect(); }
+  }, { threshold: 0.4 });
+  var statsEl = document.getElementById('stats');
+  if (statsEl) statsObserver.observe(statsEl);
+
+  // pop-in sections (zasto, gallery)
+  function observePopIn(containerId, itemSelector) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        container.querySelectorAll(itemSelector).forEach(function (el) { el.classList.add('visible'); });
+        obs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    obs.observe(container);
+  }
+  observePopIn('zasto', '.pop-in');
+  observePopIn('gallery', '.gallery-item');
+
+  // testimonial stars (build + pop-in)
+  function starSvg(filled, delay) {
+    var color = filled ? 'oklch(42% 0.1 152)' : 'oklch(98% 0.004 90)';
+    return '<svg class="star" width="18" height="18" viewBox="0 0 20 20" style="transition-delay:' + delay + 's;">' +
+      '<path d="M10 1.5 L12.4 7 L18.3 7.6 L13.8 11.6 L15.1 17.4 L10 14.3 L4.9 17.4 L6.2 11.6 L1.7 7.6 L7.6 7 Z" fill="' + color + '" stroke="oklch(42% 0.1 152)" stroke-width="1"></path></svg>';
+  }
+  document.querySelectorAll('.stars').forEach(function (el) {
+    var rating = parseInt(el.getAttribute('data-rating'), 10);
+    var html = '';
+    for (var i = 0; i < 5; i++) html += starSvg(i < rating, (i * 0.08).toFixed(2));
+    el.innerHTML = html;
+  });
+  var testimonialsEl = document.getElementById('testimonials');
+  if (testimonialsEl) {
+    var tObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        testimonialsEl.querySelectorAll('.star').forEach(function (el) { el.classList.add('visible'); });
+        tObs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    tObs.observe(testimonialsEl);
+  }
+
+  // lightbox
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.lightbox-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      lightboxImg.src = link.getAttribute('href');
+      lightbox.style.display = 'flex';
+    });
+  });
+  lightbox.addEventListener('click', function () { lightbox.style.display = 'none'; });
+  lightboxImg.addEventListener('click', function (e) { e.stopPropagation(); });
+  document.getElementById('lightbox-close').addEventListener('click', function () { lightbox.style.display = 'none'; });
+</script>
+</body>
+</html>
